@@ -220,7 +220,7 @@ const PolygonPointView = observer(({ item, name }) => {
   const w = sizes[item.size];
 
   const startPointAttr =
-    item.index === 0
+    (item.index === 0 && item.parent.canAddPointsAfterClosure)
       ? {
           hitStrokeWidth: 12,
           fill: regionStyles.strokeColor || item.primary,

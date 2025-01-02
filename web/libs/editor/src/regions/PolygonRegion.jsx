@@ -59,6 +59,10 @@ const Model = types
 
     points: types.array(types.union(PolygonPoint, types.array(types.number)), []),
     closed: true,
+
+    minNumPoints: types.optional(types.integer, 3),
+    maxNumPoints: types.maybe(types.integer, null),
+    canAddPointsAfterClosure: types.optional(types.boolean, true)
   })
   .volatile(() => ({
     mouseOverStartPoint: false,
@@ -102,6 +106,10 @@ const Model = types
     get flattenedPoints() {
       return getFlattenedPoints(this.points);
     },
+    get maxPointsReached() {
+      // Polygons have unlimited points
+      return false;
+    },
   }))
   .actions((self) => {
     return {
@@ -117,7 +125,10 @@ const Model = types
             index,
           }));
         }
-        if (!isFF(FF_DEV_2432)) self.closed = self.points.length > 2;
+
+        if (!isFF(FF_DEV_2432) && (self.points.length >= self.minNumPoints)) {
+          self.closePoly();
+        }
         self.checkSizes();
       },
 
@@ -157,7 +168,7 @@ const Model = types
       },
 
       handleLineClick({ e, flattenedPoints, insertIdx }) {
-        if (!self.closed || !self.selected) return;
+        if (!self.closed || !self.selected || self.maxPointsReached) return;
 
         e.cancelBubble = true;
 
@@ -172,10 +183,9 @@ const Model = types
       },
 
       deletePoint(point) {
-        const willNotEliminateClosedShape = self.points.length <= 3 && point.parent.closed;
+        const willNotEliminateClosedShape = self.points.length <= self.minNumPoints && point.parent.closed;
         const isLastPoint = self.points.length === 1;
         const isSelected = self.selectedPoint === point;
-
         if (willNotEliminateClosedShape || isLastPoint) return;
         if (isSelected) self.selectedPoint = null;
         destroy(point);
@@ -187,6 +197,10 @@ const Model = types
         const point = self.control?.getSnappedPoint({ x, y });
 
         self._addPoint(point.x, point.y);
+
+        if (self.canClose(point.x, point.y)) {
+          self.closePoly();
+        }
       },
 
       setPoints(points) {
@@ -245,12 +259,17 @@ const Model = types
       },
 
       closePoly() {
-        if (self.closed || self.points.length < 3) return;
         self.closed = true;
       },
 
       canClose(x, y) {
-        if (self.points.length < 2) return false;
+        if (self.closed) return false;
+
+        // We can not close when minNumPoints condition is not met
+        if (self.points.length < self.minNumPoints) return false;
+
+        // Close when points.length == maxNumPoints
+        if (self.maxPointsReached) return true;
 
         const p1 = self.points[0];
         const p2 = { x, y };
@@ -307,7 +326,7 @@ const Model = types
        * @return {PolygonRegionResult}
        */
       serialize() {
-        if (!isFF(FF_DEV_2432) && self.points.length < 3) return null;
+        if (!isFF(FF_DEV_2432) && (self.points.length < self.minNumPoints)) return null;
 
         const value = {
           points: isFF(FF_DEV_3793)
@@ -481,7 +500,7 @@ const Edge = observer(({ name, item, idx, p1, p2, closed, regionStyles }) => {
       name={name}
       onClick={(e) => item.handleLineClick({ e, flattenedPoints, insertIdx })}
       onMouseMove={(e) => {
-        if (!item.closed || !item.selected || item.isReadOnly()) return;
+        if (!item.closed || !item.selected || item.isReadOnly() || item.maxPointsReached) return;
 
         item.handleMouseMove({ e, flattenedPoints });
       }}
@@ -679,6 +698,6 @@ const HtxPolygonView = ({ item, setShapeRef }) => {
 const HtxPolygon = AliveRegion(HtxPolygonView);
 
 Registry.addTag("polygonregion", PolygonRegionModel, HtxPolygon);
-Registry.addRegionType(PolygonRegionModel, "image", (value) => !!value.points);
+Registry.addRegionType(PolygonRegionModel, "image", (value) => (value.results[0].type == "polygon"));
 
 export { PolygonRegionModel, HtxPolygon };
