@@ -1,0 +1,13 @@
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Group">
+        <g id="g1">
+            <image id="Layer" x="11" y="15" width="10" height="2" xlink:href="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAoAAAACCAYAAABhYU3QAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAACqADAAQAAAABAAAAAgAAAAALCPM0AAAAFUlEQVQIHWNkYGBIA2KCgImgCqgCACAKAGqS+p1kAAAAAElFTkSuQmCC"/>
+            <g id="g2">
+                <path id="Path" fill="#000000" stroke="none" d="M 24 13.5 L 24 13.5 C 25.380713 13.5 26.5 14.619286 26.5 16 L 26.5 16 C 26.5 17.380711 25.380713 18.5 24 18.5 L 24 18.5 C 22.619287 18.5 21.5 17.380711 21.5 16 L 21.5 16 C 21.5 14.619286 22.619287 13.5 24 13.5 Z"/>
+            </g>
+            <g id="g3">
+                <path id="path1" fill="#000000" stroke="none" d="M 8 13.5 L 8 13.5 C 9.380712 13.5 10.5 14.619286 10.5 16 L 10.5 16 C 10.5 17.380711 9.380712 18.5 8 18.5 L 8 18.5 C 6.619288 18.5 5.5 17.380711 5.5 16 L 5.5 16 C 5.5 14.619286 6.619288 13.5 8 13.5 Z"/>
+            </g>
+        </g>
+    </g>
+</svg>

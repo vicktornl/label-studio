@@ -12,6 +12,7 @@ import {
   IconCircleToolSmart,
   IconKeypointsTool,
   IconKeypointsToolSmart,
+  IconLineTool,
   IconPolygonTool,
   IconPolygonToolSmart,
   IconRectangle3PointTool,
@@ -102,6 +103,11 @@ const NodeViews: Record<string, NodeViewProps> = {
     name: "Vector",
     icon: IconPolygonTool,
     altIcon: IconPolygonToolSmart,
+  },
+
+  LineRegionModel: {
+    name: "Line",
+    icon: IconLineTool,
   },
 
   EllipseRegionModel: {
