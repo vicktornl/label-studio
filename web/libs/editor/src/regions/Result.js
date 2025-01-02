@@ -39,6 +39,7 @@ const Result = types
       "rectangle",
       "keypoint",
       "polygon",
+      "line",
       "brush",
       "ellipse",
       "magicwand",
