@@ -8,6 +8,7 @@ import { TimeSeriesRegionModel } from "./TimeSeriesRegion";
 import { HtxKeyPoint, KeyPointRegionModel } from "./KeyPointRegion";
 import { PolygonPoint, PolygonPointView } from "./PolygonPoint";
 import { HtxPolygon, PolygonRegionModel } from "./PolygonRegion";
+import { HtxLine, LineRegionModel } from "./LineRegion";
 import { HtxVector, VectorRegionModel } from "./VectorRegion";
 import { HtxRectangle, RectRegionModel } from "./RectRegion";
 import { EllipseRegionModel, HtxEllipse } from "./EllipseRegion";
@@ -24,6 +25,7 @@ const AllRegionsType = types.union(
   EllipseRegionModel,
   TimeSeriesRegionModel,
   KeyPointRegionModel,
+  LineRegionModel,
   PolygonRegionModel,
   VectorRegionModel,
   RectRegionModel,
@@ -46,10 +48,12 @@ export {
   HtxBitmask,
   HtxEllipse,
   HtxKeyPoint,
+  HtxLine,
   HtxPolygon,
   HtxVector,
   HtxRectangle,
   HtxTextAreaRegion,
+  LineRegionModel,
   RichTextRegionModel,
   ParagraphsRegionModel,
   TimeSeriesRegionModel,
