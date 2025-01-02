@@ -50,6 +50,7 @@ export { ReactComponent as IconVolumeHalf } from "./volume-half.svg";
 export { ReactComponent as IconVolumeFull } from "./volume-full.svg";
 
 // Tools
+export { ReactComponent as IconLineTool } from "./tools/line-tool.svg";
 export { ReactComponent as IconBrushTool } from "./tools/brush-tool.svg";
 export { ReactComponent as IconBrushToolSmart } from "./tools/brush-tool-smart.svg";
 export { ReactComponent as IconCircleTool } from "./tools/circle-tool.svg";
