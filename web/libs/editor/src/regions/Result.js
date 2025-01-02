@@ -14,6 +14,7 @@ const resultTypes = [
   "rectangle",
   "keypoint",
   "polygon",
+  "line",
   "brush",
   "bitmask",
   "ellipse",
