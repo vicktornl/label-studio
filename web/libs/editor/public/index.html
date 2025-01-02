@@ -101,6 +101,14 @@
 
         const lsfConfig = {
           description: "Description",
+          config: `
+            <View>
+              <Line name="line" toName="image" strokeColor="blue" fillColor="blue" strokeWidth="3" pointSize="large" arrow="false" />
+              <Line name="arrow" toName="image" strokeWidth="3" pointSize="large" arrow="true" />
+              <Polygon name="polygon" toName="image" strokeWidth="3" pointSize="large" />
+              <Image name="image" value="$image" zoom="true"/>
+            </View>
+          `,
           interfaces: [
               "panel",
               "update",
@@ -150,13 +158,21 @@
             predictions: [],
             id: 1,
             data: {
-              image: "https://htx-pub.s3.us-east-1.amazonaws.com/examples/images/nick-owuor-astro-nic-visuals-wDifg5xc9Z4-unsplash.jpg"
+              image: "https://upload.wikimedia.org/wikipedia/commons/3/33/Rosa_canina_blatt_2005.05.26_11.50.13.jpg"
             }
           },
           history: annotationHistory,
         };
 
         var ls = new LabelStudio("label-studio", lsfConfig);
+
+        ls.on("labelStudioLoad", (store) => {
+          const annotation = store.annotationStore.addAnnotation({
+            userGenerate: true
+          });
+          store.annotationStore.selectAnnotation(annotation.id);
+          console.log("Annotation added")
+        });
 
         ls.on("storageInitialized", (store) => {
           ls.on("selectAnnotation", (next) => {
@@ -165,6 +181,9 @@
             }
           })
           ls.on("updateAnnotation", (_, annotation) => {
+            console.log(annotation.serializeAnnotation());
+          })
+          ls.on("submitAnnotation", (_, annotation) => {
             console.log(annotation.serializeAnnotation());
           })
           ls.on("regionFinishedDrawing", (region, list) => {
