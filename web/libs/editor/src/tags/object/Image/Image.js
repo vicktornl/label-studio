@@ -11,6 +11,7 @@ import { BrushRegionModel } from "../../../regions/BrushRegion";
 import { EllipseRegionModel } from "../../../regions/EllipseRegion";
 import { KeyPointRegionModel } from "../../../regions/KeyPointRegion";
 import { PolygonRegionModel } from "../../../regions/PolygonRegion";
+import { LineRegionModel } from "../../../regions/LineRegion";
 import { VectorRegionModel } from "../../../regions/VectorRegion";
 import { RectRegionModel } from "../../../regions/RectRegion";
 import * as Tools from "../../../tools";
@@ -181,6 +182,7 @@ const Model = types
         RectRegionModel,
         EllipseRegionModel,
         PolygonRegionModel,
+        LineRegionModel,
         VectorRegionModel,
         KeyPointRegionModel,
       ),
@@ -794,7 +796,7 @@ const Model = types
       self.gridsize = String(value);
     },
 
-    // an alias of setCurrentImage for making an interface reusable
+    // an alias of setCurrentItem for making an interface reusable
     setCurrentItem(index = 0) {
       self.setCurrentImage(index);
     },
