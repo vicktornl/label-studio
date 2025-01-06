@@ -1,6 +1,6 @@
 import Konva from "konva";
 import { memo, useContext, useEffect, useMemo } from "react";
-import { Group, Line } from "react-konva";
+import { Group, Line, Arrow } from "react-konva";
 import { destroy, detach, getRoot, isAlive, types } from "mobx-state-tree";
 
 import Constants from "../core/Constants";
@@ -110,6 +110,9 @@ const Model = types
       // Polygons have unlimited points
       return false;
     },
+    get showArrow() {
+      return false;
+    }
   }))
   .actions((self) => {
     return {
@@ -425,7 +428,7 @@ const Poly = memo(
 
     return (
       <Group key={name} name={name}>
-        <Line
+        <Arrow
           name="_transformable"
           lineJoin="round"
           lineCap="square"
@@ -437,6 +440,7 @@ const Poly = memo(
           points={flattenedPoints}
           fill={colors.fillColor}
           closed={true}
+          pointerAtEnding={item.showArrow}
           {...dragProps}
           onTransformEnd={(e) => {
             if (e.target !== e.currentTarget) return;
