@@ -13,6 +13,9 @@ const Model = types
     get maxPointsReached() {
       return self.maxNumPoints && self.points.length >= self.maxNumPoints;
     },
+    get showArrow() {
+      return self.control.arrow == true;
+    },
   }));
 
 const LineRegionModel = types.compose(
