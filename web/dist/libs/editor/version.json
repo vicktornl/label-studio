@@ -1,0 +1,6 @@
+{
+  "message": "fix: OPTIC-2153: UI Bug: Screen Goes Blank When Filtering by Predicted Model Version in Label Studio Projects (#7477)",
+  "commit": "b26746e9fd4f84d88b96a777c1d2e515253fc79c",
+  "date": "2025-05-06T17:40:24.000Z",
+  "branch": "ls-release/1.18.0"
+}
