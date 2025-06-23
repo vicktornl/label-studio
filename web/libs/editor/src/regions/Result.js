@@ -40,6 +40,7 @@ const Result = types
       "keypoint",
       "polygon",
       "line",
+      "linelabels",
       "brush",
       "ellipse",
       "magicwand",
@@ -81,6 +82,7 @@ const Result = types
       polygonlabels: types.maybe(types.array(types.string)),
       ellipselabels: types.maybe(types.array(types.string)),
       brushlabels: types.maybe(types.array(types.string)),
+      linelabels: types.maybe(types.array(types.string)),
       timeserieslabels: types.maybe(types.array(types.string)),
       timelinelabels: types.maybe(types.array(types.string)), // new one
       taxonomy: types.frozen(), // array of arrays of strings

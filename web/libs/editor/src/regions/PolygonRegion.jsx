@@ -129,7 +129,7 @@ const Model = types
           }));
         }
 
-        if (!isFF(FF_DEV_2432) && (self.points.length >= self.minNumPoints)) {
+        if (self.points.length >= self.minNumPoints) {
           self.closePoly();
         }
         self.checkSizes();
@@ -329,7 +329,7 @@ const Model = types
        * @return {PolygonRegionResult}
        */
       serialize() {
-        if (!isFF(FF_DEV_2432) && (self.points.length < self.minNumPoints)) return null;
+        if (self.points.length < self.minNumPoints) return null;
 
         const value = {
           points: isFF(FF_DEV_3793)
@@ -633,7 +633,8 @@ const HtxPolygonView = ({ item, setShapeRef }) => {
   }, [item.bboxCoords.left, item.bboxCoords.top]);
 
   useEffect(() => {
-    if (!item.closed) item.control.tools.Polygon.resumeUnfinishedRegion(item);
+    if (!item.closed && item.control.toolNames.length)
+      item.control.tools[item.control.toolNames[0]].resumeUnfinishedRegion(item);
   }, [item.closed]);
 
   if (!item.parent) return null;
@@ -699,6 +700,8 @@ const HtxPolygonView = ({ item, setShapeRef }) => {
 const HtxPolygon = AliveRegion(HtxPolygonView);
 
 Registry.addTag("polygonregion", PolygonRegionModel, HtxPolygon);
-Registry.addRegionType(PolygonRegionModel, "image", (value) => (value.results[0].type == "polygon"));
+Registry.addRegionType(PolygonRegionModel, "image", (value) => {
+  return ["polygon", "polygonlabels"].includes(value.results[0].type)
+});
 
 export { PolygonRegionModel, HtxPolygon };

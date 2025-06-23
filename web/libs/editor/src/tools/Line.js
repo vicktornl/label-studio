@@ -10,7 +10,7 @@ const LineTool = types
   .views((self) => ({
     get tagTypes() {
       return {
-        controlTagTypes: ["line"],
+        controlTagTypes: ["line", "linelabels"],
       };
     },
     get viewTooltip() {

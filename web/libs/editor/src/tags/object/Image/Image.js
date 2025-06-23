@@ -138,6 +138,7 @@ const IMAGE_CONSTANTS = {
   rectanglelabels: "rectanglelabels",
   keypointlabels: "keypointlabels",
   polygonlabels: "polygonlabels",
+  linelabels: "linelabels",
   brushlabels: "brushlabels",
   brushModel: "BrushModel",
   ellipselabels: "ellipselabels",

@@ -97,10 +97,23 @@
           description: "Description",
           config: `
             <View>
-              <Line name="line" toName="image" strokeColor="blue" fillColor="blue" strokeWidth="3" pointSize="large" arrow="false" />
-              <Line name="arrow" toName="image" strokeWidth="3" pointSize="large" arrow="true" />
-              <Polygon name="polygon" toName="image" strokeWidth="3" pointSize="large" />
-              <Image name="image" value="$image" zoom="true"/>
+                <RectangleLabels name="rectanglelabels" toName="image">
+                    <Label value="boundingbox" background="green" top-level="true" />
+                </RectangleLabels>
+                <BrushLabels name="brushlabels" toName="image">
+                    <Label value="brush" background="rgba(245, 40, 145, 0.7)" parent="boundingbox" />
+                </BrushLabels>
+                <LineLabels name="linelabels" toName="image" arrow="true">
+                    <Label value="Car" />
+                    <Label value="Sign" />
+                </LineLabels>
+                <PolygonLabels name="polygonlabels" toName="image">
+                    <Label value="Door" />
+                    <Label value="Window" />
+                </PolygonLabels>
+                <Line name="single arrow" toName="image" strokeWidth="3" pointSize="large" arrow="true" />
+                <Polygon name="single polygon" toName="image" strokeWidth="3" pointSize="large" />
+                <Image name="image" value="$image" zoom="true" zoomControl="true" maxHeight="auto" />
             </View>
           `,
           interfaces: [
@@ -159,6 +172,7 @@
         };
 
         var ls = new LabelStudio("label-studio", lsfConfig);
+        window.ls = ls
 
         ls.on("labelStudioLoad", (store) => {
           const annotation = store.annotationStore.addAnnotation({

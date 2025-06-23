@@ -93,6 +93,7 @@ const Model = types
       "ellipse",
       "polygon",
       "line",
+      "linelabels",
       "keypoint",
       "brush",
       "magicwand",

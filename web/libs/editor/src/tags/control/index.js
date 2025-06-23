@@ -25,6 +25,7 @@ import { MagicWandModel } from "./MagicWand";
 import { PolygonLabelsModel } from "./PolygonLabels";
 import { PolygonModel } from "./Polygon";
 import { LineModel } from "./Line";
+import { LineLabelsModel } from "./LineLabels";
 import { RectangleLabelsModel } from "./RectangleLabels";
 import { RectangleModel } from "./Rectangle";
 
@@ -57,6 +58,7 @@ export {
   PolygonLabelsModel,
   PolygonModel,
   LineModel,
+  LineLabelsModel,
   RectangleLabelsModel,
   RectangleModel,
   RelationsModel,
