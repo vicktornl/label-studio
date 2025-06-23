@@ -85,6 +85,7 @@ const Model = types
         "TimeSeriesLabels",
         "ParagraphLabels",
         "BitmaskLabels",
+        "LineLabels",
         "VectorLabels",
         ...Registry.customTags.map((t) => t.tag).filter((tag) => tag.endsWith("Labels")),
       ]),
@@ -151,7 +152,7 @@ const Model = types
 
       if (sameObjectSelectedRegions.length > 0 && affectedRegions.length === 0) return;
 
-      // don't select if it can not be used
+      // one more check if that label can be selected
       if (
         !!affectedRegions.length &&
         !self.selected &&

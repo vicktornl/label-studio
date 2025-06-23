@@ -15,6 +15,7 @@ const resultTypes = [
   "keypoint",
   "polygon",
   "line",
+  "linelabels",
   "brush",
   "bitmask",
   "ellipse",
@@ -62,6 +63,7 @@ const resultValues = {
   vectorlabels: types.maybe(types.array(types.string)),
   ellipselabels: types.maybe(types.array(types.string)),
   brushlabels: types.maybe(types.array(types.string)),
+  linelabels: types.maybe(types.array(types.string)),
   timeserieslabels: types.maybe(types.array(types.string)),
   timelinelabels: types.maybe(types.array(types.string)), // new one
   bitmasklabels: types.maybe(types.array(types.string)),

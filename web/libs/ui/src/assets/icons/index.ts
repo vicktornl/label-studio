@@ -153,6 +153,7 @@ export { ReactComponent as IconKeypointsToolSmart } from "./keypoints-tool-smart
 export { ReactComponent as IconLaunch } from "./launch.svg";
 export { ReactComponent as IconLink } from "./link.svg";
 export { ReactComponent as IconList } from "./list.svg";
+export { ReactComponent as IconLineTool } from "./line-tool.svg";
 export { ReactComponent as IconLockLocked } from "./locked.svg";
 export { ReactComponent as IconLockUnlocked } from "./unlocked.svg";
 export { ReactComponent as IconLsLabeling } from "./ls-labeling.svg";

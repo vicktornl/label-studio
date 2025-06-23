@@ -28,6 +28,7 @@ import { PolygonLabelsModel } from "./PolygonLabels";
 import { VectorLabelsModel } from "./VectorLabels";
 import { PolygonModel } from "./Polygon";
 import { LineModel } from "./Line";
+import { LineLabelsModel } from "./LineLabels";
 import { VectorModel } from "./Vector";
 import { RectangleLabelsModel } from "./RectangleLabels";
 import { RectangleModel } from "./Rectangle";
@@ -64,6 +65,7 @@ export {
   VectorLabelsModel,
   PolygonModel,
   LineModel,
+  LineLabelsModel,
   VectorModel,
   RectangleLabelsModel,
   RectangleModel,
