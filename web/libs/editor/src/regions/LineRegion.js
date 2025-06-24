@@ -57,7 +57,7 @@ Registry.addRegionType(
   LineRegionModel,
   "image",
   (value) => {
-    return ["line", "linelabels"].includes(value.results[0].type)
+    return ["line", "linelabels"].includes(value.results?.length && value.results[0].type)
   },
 );
 

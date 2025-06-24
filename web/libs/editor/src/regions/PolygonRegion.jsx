@@ -701,7 +701,7 @@ const HtxPolygon = AliveRegion(HtxPolygonView);
 
 Registry.addTag("polygonregion", PolygonRegionModel, HtxPolygon);
 Registry.addRegionType(PolygonRegionModel, "image", (value) => {
-  return ["polygon", "polygonlabels"].includes(value.results[0].type)
+  return ["polygon", "polygonlabels"].includes(value.results?.length && value.results[0].type)
 });
 
 export { PolygonRegionModel, HtxPolygon };
