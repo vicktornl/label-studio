@@ -101,7 +101,7 @@ export const SkipButton = memo(
         aria-label="skip-task"
         disabled={disabled}
         look="outlined"
-        tooltip="Cancel (skip) task [ Ctrl+Space ]"
+        tooltip="Cancel (disable) task: [ Ctrl+Space ]"
         onClick={async (e) => {
           const action = () => store.skipTask({});
           const selected = store.annotationStore?.selected;
@@ -115,7 +115,7 @@ export const SkipButton = memo(
           }
         }}
       >
-        Skip
+        Disable
       </Button>
     );
   }),
@@ -126,7 +126,7 @@ export const UnskipButton = memo(
     return (
       <Button
         key="cancel-skip"
-        tooltip="Cancel skip: []"
+        tooltip="Cancel Disable: []"
         aria-label="cancel-skip"
         look="outlined"
         disabled={disabled}
@@ -138,7 +138,7 @@ export const UnskipButton = memo(
           store.unskipTask();
         }}
       >
-        Cancel skip
+        Cancel Disable
       </Button>
     );
   }),
