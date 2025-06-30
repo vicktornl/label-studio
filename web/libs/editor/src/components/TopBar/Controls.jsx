@@ -127,7 +127,7 @@ export const Controls = controlsInjector(
         </Elem>,
       );
       buttons.push(
-        <ButtonTooltip key="cancel-skip" title="Cancel skip: []">
+        <ButtonTooltip key="cancel-skip" title="Cancel Disable: []">
           <Button
             aria-label="cancel-skip"
             disabled={disabled}
@@ -137,14 +137,14 @@ export const Controls = controlsInjector(
               store.unskipTask();
             }}
           >
-            Cancel skip
+            Cancel Disable
           </Button>
         </ButtonTooltip>,
       );
     } else {
       if (store.hasInterface("skip")) {
         buttons.push(
-          <ButtonTooltip key="skip" title="Cancel (skip) task: [ Ctrl+Space ]">
+          <ButtonTooltip key="skip" title="Cancel (Disable) task: [ Ctrl+Space ]">
             <Button
               aria-label="skip-task"
               disabled={disabled}
@@ -158,7 +158,7 @@ export const Controls = controlsInjector(
                 }
               }}
             >
-              Skip
+              Disable
             </Button>
           </ButtonTooltip>,
         );

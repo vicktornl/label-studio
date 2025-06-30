@@ -94,7 +94,7 @@ type SkipButtonProps = {
 export const SkipButton = memo(
   observer(({ disabled, store, onSkipWithComment }: SkipButtonProps) => {
     return (
-      <ButtonTooltip key="skip" title="Cancel (skip) task: [ Ctrl+Space ]">
+      <ButtonTooltip key="skip" title="Cancel (disable) task: [ Ctrl+Space ]">
         <Button
           aria-label="skip-task"
           disabled={disabled}
@@ -111,7 +111,7 @@ export const SkipButton = memo(
             }
           }}
         >
-          Skip
+          Disable
         </Button>
       </ButtonTooltip>
     );
@@ -121,7 +121,7 @@ export const SkipButton = memo(
 export const UnskipButton = memo(
   observer(({ disabled, store }: { disabled: boolean; store: MSTStore }) => {
     return (
-      <ButtonTooltip key="cancel-skip" title="Cancel skip: []">
+      <ButtonTooltip key="cancel-skip" title="Cancel disable: []">
         <Button
           aria-label="cancel-skip"
           disabled={disabled}
@@ -134,7 +134,7 @@ export const UnskipButton = memo(
             store.unskipTask();
           }}
         >
-          Cancel skip
+          Cancel Disable
         </Button>
       </ButtonTooltip>
     );
