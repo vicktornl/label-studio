@@ -15,6 +15,7 @@ import { TimelineRegionModel } from "./TimelineRegion";
 import { TimeSeriesRegionModel } from "./TimeSeriesRegion";
 import { ParagraphsRegionModel } from "./ParagraphsRegion";
 import { VideoRectangleRegionModel } from "./VideoRectangleRegion";
+import { LineRegionModel } from "./LineRegion";
 
 // general Area type for classification Results which doesn't belong to any real Area
 const ClassificationArea = types.compose(
@@ -84,6 +85,7 @@ const Area = types.union(
   EllipseRegionModel,
   PolygonRegionModel,
   BrushRegionModel,
+  LineRegionModel,
   VideoRectangleRegionModel,
   ClassificationArea,
 );
