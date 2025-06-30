@@ -1312,6 +1312,7 @@ const _Annotation = types
           const areaSnapshot = {
             id: areaId,
             object: to_name,
+            originalType: type,
             ...data,
             // We need to omit value properties due to there may be conflicting property types, for example a text.
             // if we don't it can create a classification instead of proper area
